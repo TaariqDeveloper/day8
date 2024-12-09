@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Objects</title>
+</head>
+<body>
+   <script>
+      
+      const product = {
+         name: 'mohamed',
+         price: 100
+      }
+      // console.log(product);
+      // console.log(product.name);
+      // console.log(product.price);
+      // // change the first value 
+      // product.name = 'Abdi';
+      // console.log(product);
+
+      // product.newproduct = true;
+      // delete product.newproduct;
+     
+
+
+
+      //why we use object
+      //object make a code more organize
+      // let use group multiple values to gether
+      //let us use multiple values together
+
+      //strategy of javascript
+      //1 think about what steps we nead (algorithm)
+      // convert these steps into a code
+
+      const product2 = {
+         name: 'shirt',
+         ['delivery-Time']: '1',
+         rating : {
+            stars: 4.5,
+            count:87
+         },
+         fun: function function1(){
+            // console.log('function inside of function')
+            name = "mohamed";
+            console.log(name);
+         } 
+      }
+      console.log(product2);
+      // another way to access this object is using dot notation
+      console.log(product2.name);
+      console.log(product2['name']);
+      console.log(product2['delivery-Time']);
+      product2.fun();
+      console.log(typeof console.log)
+
+      // 2 More Built-in Objects
+      // JSON
+      // LocalStorage
+      // json built-in object this object helps us to work with something called json . json stands for javascript object notation the easiest way to understand json  is its basically a syntex its similar syntax javascript object but it hass less features
+      
+      console.log( JSON.stringify(product2));
+      const jsonsString = JSON.stringify(product2)
+      console.log( JSON.parse(jsonsString))
+
+      // localStorage is used save to values more permanent so far we have saving our values in variable hover variables are temporary they only exiss with on the current page if we refresh the page or close the page all the variables are deleted
+      
+
+
+      
+   </script>
+</body>
+</html>

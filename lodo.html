@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Ludo Dice Game</title>
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         margin: 0;
+         background-color: #f5f5f5;
+      }
+
+      .container {
+         text-align: center;
+         background-color: white;
+         border-radius: 10px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+         padding: 20px;
+         width: 300px;
+      }
+
+      h1 {
+         font-size: 2rem;
+         margin-bottom: 20px;
+         color: #333;
+      }
+
+      .dice {
+         font-size: 5rem;
+         margin: 20px 0;
+         color: #4caf50;
+      }
+
+      button {
+         background-color: #4caf50;
+         color: white;
+         font-size: 1rem;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         transition: background-color 0.3s;
+      }
+
+      button:hover {
+         background-color: #45a049;
+      }
+
+      .players {
+         margin-top: 20px;
+         text-align: left;
+      }
+
+      .players div {
+         margin: 5px 0;
+         font-size: 1rem;
+      }
+   </style>
+</head>
+<body>
+   <div class="container">
+      <h1>Ludo Dice Game</h1>
+      <div class="dice" id="dice">🎲</div>
+      <button onclick="rollDice()">Roll Dice</button>
+      <div class="players">
+         <div>Player 1: <span id="player1Score">0</span></div>
+         <div>Player 2: <span id="player2Score">0</span></div>
+         <div id="turnInfo" style="margin-top: 10px;">Player 1's Turn</div>
+      </div>
+   </div>
+
+   <script>
+      let currentPlayer = 1; // Tracks whose turn it is (1 or 2)
+      const playerScores = [0, 0]; // Player 1 and Player 2 scores
+
+      function rollDice() {
+         const diceRoll = Math.floor(Math.random() * 6) + 1; // Random number between 1 and 6
+         document.getElementById("dice").innerText = `🎲 ${diceRoll}`;
+
+         // Update current player's score
+         playerScores[currentPlayer - 1] += diceRoll;
+         document.getElementById(`player${currentPlayer}Score`).innerText = playerScores[currentPlayer - 1];
+
+         // Check if player wins
+         if (playerScores[currentPlayer - 1] >= 50) {
+            alert(`Player ${currentPlayer} wins!`);
+            resetGame();
+            return;
+         }
+
+         // Switch turns
+         currentPlayer = currentPlayer === 1 ? 2 : 1;
+         document.getElementById("turnInfo").innerText = `Player ${currentPlayer}'s Turn`;
+      }
+
+      function resetGame() {
+         playerScores[0] = 0;
+         playerScores[1] = 0;
+         document.getElementById("player1Score").innerText = "0";
+         document.getElementById("player2Score").innerText = "0";
+         currentPlayer = 1;
+         document.getElementById("turnInfo").innerText = "Player 1's Turn";
+      }
+   </script>
+</body>
+</html>
