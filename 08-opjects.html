@@ -36,7 +36,7 @@
 
       const product2 = {
          name: 'shirt',
-         ['delivery-Time']: '1',
+         ['delivery-Time']: '1',  // praket notation
          rating : {
             stars: 4.5,
             count:87
@@ -47,24 +47,71 @@
             console.log(name);
          } 
       }
-      console.log(product2);
-      // another way to access this object is using dot notation
-      console.log(product2.name);
-      console.log(product2['name']);
-      console.log(product2['delivery-Time']);
-      product2.fun();
-      console.log(typeof console.log)
+      // console.log(product2);
+      // // another way to access this object is using dot notation
+      // console.log(product2.name);
+      // console.log(product2['name']);
+      // console.log(product2['delivery-Time']);
+      // product2.fun();
+      // console.log(typeof console.log)
 
       // 2 More Built-in Objects
       // JSON
       // LocalStorage
       // json built-in object this object helps us to work with something called json . json stands for javascript object notation the easiest way to understand json  is its basically a syntex its similar syntax javascript object but it hass less features
+     
+     
+      // const jsonsString = JSON.stringify(product2)
+      // console.log(JSON.stringify(product2))
+      // console.log(JSON.parse(jsonsString))
       
-      console.log( JSON.stringify(product2));
-      const jsonsString = JSON.stringify(product2)
-      console.log( JSON.parse(jsonsString))
+    
 
       // localStorage is used save to values more permanent so far we have saving our values in variable hover variables are temporary they only exiss with on the current page if we refresh the page or close the page all the variables are deleted
+
+
+      //  console.log('hello'.length);
+      //  console.log('hello' .toUpperCase());
+
+
+       const object1 = {
+         message: 'hello'
+
+       };
+
+       const object2 = object1
+
+       object1.message = "good morning";
+       console.log(object1)
+       console.log(object2)
+
+       const object3 = {
+         message: 'good morning'
+
+       }
+       console.log(object1 === object3) // false because object1 and object3 are different objects even though they have the same properties and values.
+       console.log(object1 === object2)
+
+       const object4 = {
+         message: 'good morning',
+         price: 7.99
+
+       }
+      //  const message = object4.message;
+       const {message , price} =  object4
+       console.log(message ) // good morning
+       console.log(price) // 7.99
+
+       object5 = {
+         message: message,
+         method: function function1(){
+            console.log('method')
+         }
+       }
+       console.log(object5) // good morning
+       object5.method() // method
+
+      
       
 
 
